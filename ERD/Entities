@@ -1,0 +1,82 @@
+To design the database for the ZenClass Portal, we'll define the entities and their relationships using an Entity-Relationship Diagram (ERD). The entities and their attributes are as follows:
+
+1.Users (candidate, mentor)
+
+user_id (Primary Key)
+name
+email
+role (candidate, mentor)
+
+2.Classes
+
+class_id (Primary Key)
+title
+timing
+isEnded
+
+3.Tasks
+
+task_id (Primary Key)
+title
+tag
+
+4.Queries
+
+query_id (Primary Key)
+title
+description
+tag
+date
+language
+time
+
+5.Events
+
+event_id (Primary Key)
+title
+type (Hackathon, Any placement session)
+date
+location
+
+*****************************************************
+
+Linking Tables
+To relate these entities using linking tables:
+
+User_Classes
+
+user_class_id (Primary Key)
+user_id (Foreign Key)
+class_id (Foreign Key)
+
+User_Tasks
+
+user_task_id (Primary Key)
+user_id (Foreign Key)
+task_id (Foreign Key)
+
+User_Queries
+
+user_query_id (Primary Key)
+user_id (Foreign Key)
+query_id (Foreign Key)
+
+User_Events
+
+user_event_id (Primary Key)
+user_id (Foreign Key)
+event_id (Foreign Key)
+
+Class_Tasks
+
+class_task_id (Primary Key)
+class_id (Foreign Key)
+task_id (Foreign Key)
+
+Class_Queries
+
+class_query_id (Primary Key)
+class_id (Foreign Key)
+query_id (Foreign Key)
+
+Let's create an Entity-Relationship Diagram (ERD) for these entities and their relationships.

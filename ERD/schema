@@ -1,0 +1,97 @@
+Table User {
+    user_id int [pk]
+    name varchar
+    email varchar
+    role varchar
+}
+
+Table Class {
+    class_id int [pk]
+    title varchar
+    timing datetime
+    isEnded boolean
+}
+
+Table Task {
+    task_id int [pk]
+    title varchar
+    tag varchar
+}
+
+Table Query {
+    query_id int [pk]
+    title varchar
+    description varchar
+    tag varchar
+    date datetime
+    language varchar
+    time time
+}
+
+Table Event {
+    event_id int [pk]
+    title varchar
+    type varchar
+    date datetime
+    location varchar
+}
+
+Table User_Classes {
+    user_class_id int [pk]
+    user_id int
+    class_id int
+    Note: "Linking table for Users and Classes"
+}
+
+Table User_Tasks {
+    user_task_id int [pk]
+    user_id int
+    task_id int
+    Note: "Linking table for Users and Tasks"
+}
+
+Table User_Queries {
+    user_query_id int [pk]
+    user_id int
+    query_id int
+    Note: "Linking table for Users and Queries"
+}
+
+Table User_Events {
+    user_event_id int [pk]
+    user_id int
+    event_id int
+    Note: "Linking table for Users and Events"
+}
+
+Table Class_Tasks {
+    class_task_id int [pk]
+    class_id int
+    task_id int
+    Note: "Linking table for Classes and Tasks"
+}
+
+Table Class_Queries {
+    class_query_id int [pk]
+    class_id int
+    query_id int
+    Note: "Linking table for Classes and Queries"
+}
+
+Ref: User_Classes.user_id > User.user_id
+Ref: User_Classes.class_id > Class.class_id
+
+Ref: User_Tasks.user_id > User.user_id
+Ref: User_Tasks.task_id > Task.task_id
+
+Ref: User_Queries.user_id > User.user_id
+Ref: User_Queries.query_id > Query.query_id
+
+Ref: User_Events.user_id > User.user_id
+Ref: User_Events.event_id > Event.event_id
+
+Ref: Class_Tasks.class_id > Class.class_id
+Ref: Class_Tasks.task_id > Task.task_id
+
+Ref: Class_Queries.class_id > Class.class_id
+Ref: Class_Queries.query_id > Query.query_id
